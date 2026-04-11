@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agente-pesquisa"
+version = "0.1.0"
+description = "Monitor de campanhas financeiras com OpenClaw + Codex"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "pydantic>=2.0.0",
+  "jinja2>=3.1.0",
+  "markdown>=3.5.0",
+  "beautifulsoup4>=4.12.0",
+  "lxml>=5.0.0",
+  "python-dateutil>=2.9.0",
+  "jsonschema>=4.22.0"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

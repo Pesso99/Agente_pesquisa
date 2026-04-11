@@ -1,0 +1,17 @@
+{
+  "identity": {
+    "name": "AgentePesquisa",
+    "theme": "financial campaign monitoring"
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "C:/Users/ZigPay/Documents/Agente Pesquisa",
+      "model": {
+        "primary": "openai/gpt-5.4"
+      }
+    }
+  },
+  "cron": {
+    "enabled": true
+  }
+}

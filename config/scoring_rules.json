@@ -1,0 +1,12 @@
+{
+  "official_source_bonus": 0.25,
+  "official_social_bonus": 0.15,
+  "has_screenshot_bonus": 0.2,
+  "clear_benefit_bonus": 0.15,
+  "clear_deadline_bonus": 0.1,
+  "third_party_penalty": 0.2,
+  "missing_visual_penalty": 0.4,
+  "unclear_benefit_penalty": 0.25,
+  "max_score": 1.0,
+  "min_score": 0.0
+}

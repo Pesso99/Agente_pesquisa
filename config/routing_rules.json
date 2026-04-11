@@ -1,0 +1,10 @@
+{
+  "discovery_to_capture_min_confidence": 0.6,
+  "capture_to_extract_requires_artifact": true,
+  "extract_to_validate_requires_campaign_name": true,
+  "validate_to_report_allowed_statuses": [
+    "validated",
+    "validated_with_reservations",
+    "review"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Campaign",
+  "type": "object",
+  "required": [
+    "campaign_id",
+    "institution_id",
+    "campaign_name",
+    "campaign_type",
+    "source_url",
+    "status",
+    "confidence_final",
+    "evidence_refs"
+  ],
+  "properties": {
+    "campaign_id": { "type": "string" },
+    "institution_id": { "type": "string" },
+    "campaign_name": { "type": "string" },
+    "campaign_type": { "type": "string" },
+    "benefit": { "type": ["string", "null"] },
+    "audience": { "type": ["string", "null"] },
+    "source_url": { "type": "string" },
+    "source_type": { "type": ["string", "null"] },
+    "regulation_url": { "type": ["string", "null"] },
+    "start_date": { "type": ["string", "null"] },
+    "end_date": { "type": ["string", "null"] },
+    "status": {
+      "type": "string",
+      "enum": ["validated", "validated_with_reservations", "review", "discarded"]
+    },
+    "confidence_final": { "type": "number", "minimum": 0, "maximum": 1 },
+    "validation_notes": { "type": ["string", "null"] },
+    "evidence_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "channels": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Executar todos os dias as 07:00 (America/Sao_Paulo)
+0 7 * * * cd "C:/Users/ZigPay/Documents/Agente Pesquisa" && .venv/Scripts/python scripts/run_manual_cycle.py --job-id daily_%Y%m%d
