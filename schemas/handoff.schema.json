@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Handoff",
+  "type": "object",
+  "required": [
+    "job_id",
+    "task",
+    "source_agent",
+    "target_agent",
+    "input_refs",
+    "created_at"
+  ],
+  "properties": {
+    "job_id": { "type": "string" },
+    "task": { "type": "string" },
+    "source_agent": { "type": "string" },
+    "target_agent": { "type": "string" },
+    "priority": { "type": "string" },
+    "input_refs": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "created_at": { "type": "string" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

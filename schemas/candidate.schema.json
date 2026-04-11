@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Candidate",
+  "type": "object",
+  "required": [
+    "candidate_id",
+    "institution_id",
+    "source_type",
+    "source_url",
+    "headline",
+    "discovered_at",
+    "confidence_initial"
+  ],
+  "properties": {
+    "candidate_id": { "type": "string" },
+    "institution_id": { "type": "string" },
+    "source_type": {
+      "type": "string",
+      "enum": ["official_site", "social_official", "search_result", "third_party"]
+    },
+    "source_url": { "type": "string" },
+    "headline": { "type": "string" },
+    "summary": { "type": ["string", "null"] },
+    "confidence_initial": { "type": "number", "minimum": 0, "maximum": 1 },
+    "discovered_at": { "type": "string" },
+    "notes": { "type": ["string", "null"] }
+  }
+}

@@ -1,0 +1,121 @@
+[
+  {
+    "institution_id": "itau",
+    "display_name": "Itau",
+    "category": "bank",
+    "priority": 1,
+    "official_domains": ["itau.com.br"],
+    "official_socials": {
+      "instagram": "https://www.instagram.com/itau/",
+      "linkedin": "https://www.linkedin.com/company/itau/"
+    },
+    "search_terms": [
+      "Itau promocao",
+      "Itau campanha investimentos",
+      "Itau cashback",
+      "Itau CDB promocional",
+      "site:itau.com.br promocao",
+      "site:itau.com.br campanha"
+    ]
+  },
+  {
+    "institution_id": "bradesco",
+    "display_name": "Bradesco",
+    "category": "bank",
+    "priority": 1,
+    "official_domains": ["bradesco.com.br"],
+    "official_socials": {
+      "instagram": "https://www.instagram.com/bradesco/",
+      "linkedin": "https://www.linkedin.com/company/bradesco/"
+    },
+    "search_terms": [
+      "Bradesco promocao",
+      "Bradesco campanha investimentos",
+      "Bradesco cashback",
+      "site:bradesco.com.br promocao"
+    ]
+  },
+  {
+    "institution_id": "santander",
+    "display_name": "Santander",
+    "category": "bank",
+    "priority": 1,
+    "official_domains": ["santander.com.br"],
+    "official_socials": {
+      "instagram": "https://www.instagram.com/santanderbr/",
+      "linkedin": "https://www.linkedin.com/company/santander-brasil/"
+    },
+    "search_terms": [
+      "Santander promocao",
+      "Santander cashback",
+      "Santander investimentos campanha",
+      "site:santander.com.br promocao"
+    ]
+  },
+  {
+    "institution_id": "inter",
+    "display_name": "Inter",
+    "category": "bank",
+    "priority": 1,
+    "official_domains": ["bancointer.com.br", "inter.co"],
+    "official_socials": {
+      "instagram": "https://www.instagram.com/bancointer/",
+      "linkedin": "https://www.linkedin.com/company/interco/"
+    },
+    "search_terms": [
+      "Inter promocao",
+      "Inter cashback",
+      "Inter campanha investimentos",
+      "site:bancointer.com.br promocao"
+    ]
+  },
+  {
+    "institution_id": "nubank",
+    "display_name": "Nubank",
+    "category": "bank",
+    "priority": 1,
+    "official_domains": ["nubank.com.br"],
+    "official_socials": {
+      "instagram": "https://www.instagram.com/nubank/",
+      "linkedin": "https://www.linkedin.com/company/nubank/"
+    },
+    "search_terms": [
+      "Nubank promocao",
+      "Nubank cashback",
+      "Nubank campanha investimentos",
+      "site:nubank.com.br promocao"
+    ]
+  },
+  {
+    "institution_id": "btg",
+    "display_name": "BTG Pactual",
+    "category": "bank",
+    "priority": 2,
+    "official_domains": ["btgpactual.com"],
+    "official_socials": {
+      "instagram": "https://www.instagram.com/btgpactual/",
+      "linkedin": "https://www.linkedin.com/company/btg-pactual/"
+    },
+    "search_terms": [
+      "BTG Pactual promocao",
+      "BTG Pactual campanha investimentos",
+      "site:btgpactual.com promocao"
+    ]
+  },
+  {
+    "institution_id": "xp",
+    "display_name": "XP",
+    "category": "broker",
+    "priority": 2,
+    "official_domains": ["xp.com.br"],
+    "official_socials": {
+      "instagram": "https://www.instagram.com/xpinvestimentos/",
+      "linkedin": "https://www.linkedin.com/company/xp-inc-/"
+    },
+    "search_terms": [
+      "XP promocao",
+      "XP investimentos campanha",
+      "site:xp.com.br promocao"
+    ]
+  }
+]
