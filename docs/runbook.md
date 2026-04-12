@@ -50,3 +50,16 @@ Opcao direta:
 ## 7. OpenClaw
 - Template local: `openclaw/openclaw.json`
 - Instalacao guiada: `openclaw/install_user_config.ps1`
+
+## 8. Runtime multiagente V2
+Executar ciclo autônomo:
+`python scripts/run_cycle.py --autonomous --job-id auto_001`
+
+Ver fila de revisão:
+`python scripts/review_queue.py --status review`
+
+Aprovar envio:
+`python scripts/approve_send.py --job-id auto_001 --approved-by analista`
+
+Replay de falhas:
+`python scripts/replay_failed.py --job-id all`

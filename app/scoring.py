@@ -72,3 +72,34 @@ def validate_campaign(campaign: Campaign, rules: dict, *, has_screenshot: bool) 
     else:
         updated.validation_notes = "Baixa confianca para publicacao."
     return updated
+
+
+def validate_campaign_critic(campaign: Campaign, rules: dict, *, has_screenshot: bool) -> Campaign:
+    """Critic pass with stricter thresholds to challenge optimistic classifications."""
+    critic_rules = dict(rules)
+    critic_rules["base_score"] = float(rules.get("base_score", 0.2)) - 0.08
+    critic_rules["missing_visual_penalty"] = float(rules.get("missing_visual_penalty", 0.4)) + 0.1
+    critic_rules["unclear_benefit_penalty"] = float(rules.get("unclear_benefit_penalty", 0.25)) + 0.05
+    critic_rules["max_score"] = float(rules.get("max_score", 1.0))
+    critic_rules["min_score"] = float(rules.get("min_score", 0.0))
+    return validate_campaign(campaign, critic_rules, has_screenshot=has_screenshot)
+
+
+def validate_campaign_two_pass(
+    campaign: Campaign,
+    rules: dict,
+    *,
+    has_screenshot: bool,
+) -> tuple[Campaign, Campaign, Campaign]:
+    primary = validate_campaign(campaign, rules, has_screenshot=has_screenshot)
+    critic = validate_campaign_critic(campaign, rules, has_screenshot=has_screenshot)
+    final = primary.model_copy(deep=True)
+
+    if primary.status != critic.status:
+        final.status = "review"
+        final.confidence_final = round((primary.confidence_final + critic.confidence_final) / 2, 3)
+        final.validation_notes = (
+            f"Divergencia entre validadores: primary={primary.status}, critic={critic.status}. "
+            "Encaminhada para revisao humana."
+        )
+    return primary, critic, final

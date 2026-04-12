@@ -67,10 +67,15 @@ class Report(BaseModel):
 
 class Handoff(BaseModel):
     job_id: str
+    trace_id: str
     task: str
     source_agent: str
     target_agent: str
     input_refs: list[str]
     created_at: str
+    attempt: int = Field(ge=1)
+    source_quality_label: str
+    capture_quality_score: float = Field(ge=0, le=1)
+    blocking_reasons: list[str] = Field(default_factory=list)
     priority: str | None = None
     notes: str | None = None

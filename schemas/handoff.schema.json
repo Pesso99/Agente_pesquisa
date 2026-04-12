@@ -4,17 +4,30 @@
   "type": "object",
   "required": [
     "job_id",
+    "trace_id",
     "task",
     "source_agent",
     "target_agent",
+    "attempt",
+    "source_quality_label",
+    "capture_quality_score",
+    "blocking_reasons",
     "input_refs",
     "created_at"
   ],
   "properties": {
     "job_id": { "type": "string" },
+    "trace_id": { "type": "string" },
     "task": { "type": "string" },
     "source_agent": { "type": "string" },
     "target_agent": { "type": "string" },
+    "attempt": { "type": "integer", "minimum": 1 },
+    "source_quality_label": { "type": "string" },
+    "capture_quality_score": { "type": "number", "minimum": 0, "maximum": 1 },
+    "blocking_reasons": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
     "priority": { "type": "string" },
     "input_refs": {
       "type": "array",
