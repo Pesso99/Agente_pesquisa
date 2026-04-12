@@ -54,11 +54,15 @@ def test_report_schema_validation() -> None:
 def test_handoff_schema_validation() -> None:
     handoff = Handoff(
         job_id="job_001",
+        trace_id="job_001:trace",
         task="capture_candidate",
         source_agent="discover",
         target_agent="capture",
         input_refs=["data/candidates/cand_001.json"],
         created_at="2026-04-10T07:05:00-03:00",
+        attempt=1,
+        source_quality_label="campaign_like",
+        capture_quality_score=0.8,
+        blocking_reasons=[],
     )
     validate_model_against_schema(handoff)
-

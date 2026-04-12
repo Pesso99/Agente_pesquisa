@@ -1,0 +1,34 @@
+{
+  "maestro": {
+    "model": "openai/gpt-5.4",
+    "tier": "strong"
+  },
+  "discover": {
+    "model": "openai/gpt-5.4-mini",
+    "tier": "economy"
+  },
+  "capture": {
+    "model": "openai/gpt-5.4-mini",
+    "tier": "economy"
+  },
+  "extract": {
+    "model": "openai/gpt-5.4",
+    "tier": "strong"
+  },
+  "validator_primary": {
+    "model": "openai/gpt-5.4",
+    "tier": "strong"
+  },
+  "validator_critic": {
+    "model": "openai/gpt-5.4",
+    "tier": "strong"
+  },
+  "report": {
+    "model": "openai/gpt-5.4",
+    "tier": "strong"
+  },
+  "sender": {
+    "model": "openai/gpt-5.4-mini",
+    "tier": "economy"
+  }
+}

@@ -47,6 +47,46 @@ Para enviar e-mail no mesmo ciclo:
 python scripts/run_manual_cycle.py --job-id manual_002 --send-email --to voce@empresa.com
 ```
 
+Para modo real mais rapido/controlado:
+```bash
+python scripts/run_manual_cycle.py --job-id real_001 --max-total 8 --max-per-institution 2 --capture-timeout 12
+```
+
+## Runtime V2 multiagente autônomo
+Executar ciclo autônomo:
+```bash
+python scripts/run_cycle.py --autonomous --job-id auto_001 --max-total 8 --capture-timeout 12
+```
+
+Listar fila de revisão:
+```bash
+python scripts/review_queue.py --status review
+```
+
+Aprovar envio humano e disparar e-mail:
+```bash
+python scripts/approve_send.py --job-id auto_001 --approved-by seu_nome --send-now --to voce@empresa.com
+```
+
+Reexecutar jobs com falha:
+```bash
+python scripts/replay_failed.py --job-id all
+```
+
+Execucao completa real em um comando:
+```bash
+python scripts/run_real_full.py --job-id real_001 --max-total 8 --max-per-institution 2 --capture-timeout 12
+```
+
+Execucao completa real com aprovacao e envio no final:
+```bash
+python scripts/run_real_full.py --job-id real_002 --approve-and-send --approved-by seu_nome --to voce@empresa.com
+```
+
+Observação:
+- O sender está protegido por aprovação humana (`approval_status=approved`).
+- O estado operacional do runtime fica em `data/state/runtime.db`.
+
 ## Como validar localmente
 ```bash
 python -m pytest

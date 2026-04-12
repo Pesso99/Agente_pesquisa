@@ -9,6 +9,7 @@ if str(ROOT) not in sys.path:
 
 from app import constants
 from app.io_utils import ensure_project_structure
+from app.runtime_db import RuntimeDB
 
 
 def main() -> None:
@@ -29,11 +30,14 @@ def main() -> None:
             print(f"- {path}")
         raise SystemExit(1)
 
+    with RuntimeDB() as _db:
+        pass
+
     print("Projeto inicializado com sucesso.")
     print(f"Workspace: {ROOT}")
     print("Estrutura de dados pronta em data/.")
+    print(f"Runtime DB pronto: {constants.RUNTIME_DB_PATH}")
 
 
 if __name__ == "__main__":
     main()
-

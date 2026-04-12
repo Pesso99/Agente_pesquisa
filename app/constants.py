@@ -21,6 +21,7 @@ ARTIFACTS_DIR = DATA_DIR / "artifacts"
 SCREENSHOTS_DIR = ARTIFACTS_DIR / "screenshots"
 RAW_HTML_DIR = ARTIFACTS_DIR / "raw_html"
 RAW_TEXT_DIR = ARTIFACTS_DIR / "raw_text"
+RUNTIME_DB_PATH = STATE_DIR / "runtime.db"
 
 VALID_STATUSES = (
     "validated",
