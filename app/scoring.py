@@ -13,7 +13,7 @@ def evaluate_campaign_score(
     *,
     has_screenshot: bool,
 ) -> float:
-    score = 0.0
+    score = float(rules.get("base_score", 0.2))
     source_type = (campaign.source_type or "").lower()
     benefit_text = (campaign.benefit or "").strip()
 
@@ -43,11 +43,15 @@ def evaluate_campaign_score(
 def classify_status(score: float, campaign: Campaign, *, has_screenshot: bool) -> str:
     source_type = (campaign.source_type or "").lower()
     benefit_clear = bool((campaign.benefit or "").strip())
+    is_official = source_type in {"official_site", "social_official"}
 
-    if score >= 0.85 and has_screenshot and source_type in {"official_site", "social_official"}:
+    if score >= 0.85 and has_screenshot and is_official:
         return "validated"
     if score >= 0.7 and has_screenshot and benefit_clear:
         return "validated_with_reservations"
+    # Fonte oficial com beneficio claro, mas sem print, deve ir para revisao e nao descarte.
+    if (not has_screenshot) and is_official and benefit_clear:
+        return "review"
     if score >= 0.45:
         return "review"
     return "discarded"
@@ -68,4 +72,3 @@ def validate_campaign(campaign: Campaign, rules: dict, *, has_screenshot: bool) 
     else:
         updated.validation_notes = "Baixa confianca para publicacao."
     return updated
-

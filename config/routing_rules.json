@@ -1,5 +1,9 @@
 {
   "discovery_to_capture_min_confidence": 0.6,
+  "max_candidates_per_institution": 2,
+  "max_candidates_total": 8,
+  "capture_timeout_seconds": 12,
+  "include_social_sources": false,
   "capture_to_extract_requires_artifact": true,
   "extract_to_validate_requires_campaign_name": true,
   "validate_to_report_allowed_statuses": [

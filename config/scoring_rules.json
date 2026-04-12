@@ -1,4 +1,5 @@
 {
+  "base_score": 0.2,
   "official_source_bonus": 0.25,
   "official_social_bonus": 0.15,
   "has_screenshot_bonus": 0.2,

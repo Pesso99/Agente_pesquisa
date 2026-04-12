@@ -47,6 +47,11 @@ Para enviar e-mail no mesmo ciclo:
 python scripts/run_manual_cycle.py --job-id manual_002 --send-email --to voce@empresa.com
 ```
 
+Para modo real mais rapido/controlado:
+```bash
+python scripts/run_manual_cycle.py --job-id real_001 --max-total 8 --max-per-institution 2 --capture-timeout 12
+```
+
 ## Como validar localmente
 ```bash
 python -m pytest
