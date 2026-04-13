@@ -8,6 +8,7 @@ CONFIG_DIR = ROOT_DIR / "config"
 SCHEMAS_DIR = ROOT_DIR / "schemas"
 DATA_DIR = ROOT_DIR / "data"
 PROMPTS_DIR = ROOT_DIR / "prompts"
+SKILLS_DIR = ROOT_DIR / "skills"
 
 CANDIDATES_DIR = DATA_DIR / "candidates"
 OBSERVATIONS_DIR = DATA_DIR / "observations"

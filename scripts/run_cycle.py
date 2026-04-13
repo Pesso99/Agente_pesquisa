@@ -21,6 +21,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-total", type=int, default=None)
     parser.add_argument("--max-per-institution", type=int, default=None)
     parser.add_argument("--capture-timeout", type=int, default=None)
+    parser.add_argument("--instagram-capture-mode", default=None)
+    parser.add_argument("--instagram-dismiss-attempts", type=int, default=None)
+    parser.add_argument("--instagram-dismiss-timeout", type=int, default=None)
+    parser.add_argument("--no-instagram-require-official-confirmation", action="store_true")
     return parser.parse_args()
 
 
@@ -33,6 +37,14 @@ def main() -> None:
         overrides["max_candidates_per_institution"] = args.max_per_institution
     if args.capture_timeout is not None:
         overrides["capture_timeout_seconds"] = args.capture_timeout
+    if args.instagram_capture_mode is not None:
+        overrides["instagram_capture_mode"] = args.instagram_capture_mode
+    if args.instagram_dismiss_attempts is not None:
+        overrides["instagram_dismiss_attempts"] = args.instagram_dismiss_attempts
+    if args.instagram_dismiss_timeout is not None:
+        overrides["instagram_dismiss_timeout_seconds"] = args.instagram_dismiss_timeout
+    if args.no_instagram_require_official_confirmation:
+        overrides["instagram_require_official_confirmation"] = False
 
     runner = run_autonomous_cycle if args.autonomous else run_manual_cycle
     result = runner(
@@ -53,4 +65,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

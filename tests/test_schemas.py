@@ -23,6 +23,8 @@ def test_observation_schema_validation() -> None:
         source_url="https://itau.com.br/promocoes",
         visible_claims=["Oferta com cashback"],
         artifacts=[{"type": "screenshot_full", "path": "data/artifacts/screenshots/obs_001.png"}],
+        instagram_modal_dismissed=None,
+        instagram_block_reason=None,
     )
     validate_model_against_schema(observation)
 
@@ -64,5 +66,7 @@ def test_handoff_schema_validation() -> None:
         source_quality_label="campaign_like",
         capture_quality_score=0.8,
         blocking_reasons=[],
+        instagram_modal_dismissed=True,
+        instagram_block_reason=None,
     )
     validate_model_against_schema(handoff)

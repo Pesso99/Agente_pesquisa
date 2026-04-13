@@ -17,6 +17,7 @@ def main() -> None:
 
     required_configs = [
         constants.CONFIG_DIR / "institutions.json",
+        constants.CONFIG_DIR / "historical_seeds.json",
         constants.CONFIG_DIR / "report_settings.json",
         constants.CONFIG_DIR / "scoring_rules.json",
         constants.CONFIG_DIR / "email_settings.json",

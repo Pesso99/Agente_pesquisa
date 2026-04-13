@@ -18,6 +18,7 @@ from app.runtime_db import RuntimeDB
 def _require_configs() -> None:
     required = [
         constants.CONFIG_DIR / "institutions.json",
+        constants.CONFIG_DIR / "historical_seeds.json",
         constants.CONFIG_DIR / "report_settings.json",
         constants.CONFIG_DIR / "scoring_rules.json",
         constants.CONFIG_DIR / "email_settings.json",
@@ -39,6 +40,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--max-total", type=int, default=8)
     parser.add_argument("--max-per-institution", type=int, default=2)
     parser.add_argument("--capture-timeout", type=int, default=12)
+    parser.add_argument("--instagram-capture-mode", default="playwright_dismiss")
+    parser.add_argument("--instagram-dismiss-attempts", type=int, default=3)
+    parser.add_argument("--instagram-dismiss-timeout", type=int, default=2)
+    parser.add_argument("--instagram-require-official-confirmation", action="store_true")
+    parser.add_argument("--no-instagram-require-official-confirmation", action="store_true")
     parser.add_argument("--to", nargs="+", default=None, help="Destinatarios para envio quando --approve-and-send.")
     parser.add_argument("--approve-and-send", action="store_true", help="Registra aprovacao humana e envia email no final.")
     parser.add_argument("--approved-by", default="human_reviewer")
@@ -51,17 +57,20 @@ def _print_summary(job_id: str, result_campaigns: int, report_paths: dict[str, P
     approval_status = "pending"
     useful_ratio = 0.0
     blocked = 0
+    instagram_blocked = 0
     if summary_path.exists():
         summary = read_json(summary_path)
         quality = summary.get("quality", {})
         useful_ratio = float(quality.get("screenshot_useful_ratio", 0.0))
         blocked = int(quality.get("blocked_observations", 0))
+        instagram_blocked = int(quality.get("instagram_blocked_observations", 0))
         approval_status = str(summary.get("approval_status", "pending"))
 
     print(f"Job concluido: {job_id}")
     print(f"Campaigns finais: {result_campaigns}")
     print(f"Screenshot util ratio: {useful_ratio:.2f}")
     print(f"Observations bloqueadas: {blocked}")
+    print(f"Instagram bloqueados: {instagram_blocked}")
     print(f"Approval status: {approval_status}")
     for kind, path in report_paths.items():
         print(f"- {kind}: {path}")
@@ -101,10 +110,20 @@ def main() -> None:
     args = parse_args()
     _require_configs()
 
+    require_official_confirmation = True
+    if args.no_instagram_require_official_confirmation:
+        require_official_confirmation = False
+    if args.instagram_require_official_confirmation:
+        require_official_confirmation = True
+
     overrides = {
         "max_candidates_total": args.max_total,
         "max_candidates_per_institution": args.max_per_institution,
         "capture_timeout_seconds": args.capture_timeout,
+        "instagram_capture_mode": args.instagram_capture_mode,
+        "instagram_dismiss_attempts": args.instagram_dismiss_attempts,
+        "instagram_dismiss_timeout_seconds": args.instagram_dismiss_timeout,
+        "instagram_require_official_confirmation": require_official_confirmation,
     }
 
     result = run_autonomous_cycle(

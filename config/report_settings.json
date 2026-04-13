@@ -1,9 +1,10 @@
 {
   "language": "pt-BR",
   "timezone": "America/Sao_Paulo",
-  "subject_prefix": "Monitor diario - promocoes e campanhas financeiras",
+  "subject_prefix": "Relatorio completo - promocoes e campanhas financeiras",
   "min_confidence_for_main_section": 0.75,
   "max_items_per_section": 15,
   "include_review_section": true,
-  "include_discarded_section": false
+  "include_discarded_section": true,
+  "full_catalog_report": true
 }
