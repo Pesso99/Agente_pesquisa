@@ -1,34 +1,42 @@
 {
   "maestro": {
-    "model": "openai/gpt-5.4",
+    "model": "gpt-5.4-mini-2026-03-17",
     "tier": "strong"
   },
   "discover": {
-    "model": "openai/gpt-5.4-mini",
-    "tier": "economy"
+    "model": "gpt-5.4-mini-2026-03-17",
+    "tier": "strong"
   },
   "capture": {
-    "model": "openai/gpt-5.4-mini",
+    "model": "gpt-5.4-nano-2026-03-17",
     "tier": "economy"
   },
   "extract": {
-    "model": "openai/gpt-5.4",
+    "model": "gpt-5.4-mini-2026-03-17",
     "tier": "strong"
   },
-  "validator_primary": {
-    "model": "openai/gpt-5.4",
+  "quality_gate": {
+    "model": "gpt-5.4-nano-2026-03-17",
+    "tier": "economy"
+  },
+  "validate": {
+    "model": "gpt-5.4-mini-2026-03-17",
     "tier": "strong"
   },
-  "validator_critic": {
-    "model": "openai/gpt-5.4",
+  "validate_critic": {
+    "model": "gpt-5.4-mini-2026-03-17",
+    "tier": "strong"
+  },
+  "screenshot_analyst": {
+    "model": "gpt-5.4-mini-2026-03-17",
     "tier": "strong"
   },
   "report": {
-    "model": "openai/gpt-5.4",
+    "model": "gpt-5.4-mini-2026-03-17",
     "tier": "strong"
   },
   "sender": {
-    "model": "openai/gpt-5.4-mini",
+    "model": "gpt-5.4-nano-2026-03-17",
     "tier": "economy"
   }
 }

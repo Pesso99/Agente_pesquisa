@@ -3,6 +3,8 @@ from __future__ import annotations
 from collections import defaultdict
 from difflib import SequenceMatcher
 
+from app.constants import CAMPAIGNS_DIR
+from app.io_utils import list_json_files, read_json
 from app.models import Campaign
 
 
@@ -51,4 +53,18 @@ def dedupe_campaigns(
             uniques[matched_index] = campaign
 
     return uniques, dict(groups)
+
+
+def load_campaigns_from_disk() -> list[Campaign]:
+    """Carrega todos os JSON de campanha em data/campaigns."""
+    return [Campaign.model_validate(read_json(path)) for path in list_json_files(CAMPAIGNS_DIR)]
+
+
+def build_full_catalog_for_report(cycle_campaigns: list[Campaign]) -> tuple[list[Campaign], dict[str, list[str]]]:
+    """Unifica o historico em disco com o ciclo atual; deduplica mantendo o ciclo primeiro."""
+    cycle_ids = {c.campaign_id for c in cycle_campaigns}
+    on_disk = load_campaigns_from_disk()
+    rest = [c for c in on_disk if c.campaign_id not in cycle_ids]
+    combined = list(cycle_campaigns) + rest
+    return dedupe_campaigns(combined)
 

@@ -1,5 +1,6 @@
 ﻿from __future__ import annotations
 
+import logging
 import re
 import unicodedata
 from dataclasses import dataclass
@@ -8,7 +9,9 @@ from pathlib import Path
 from PIL import Image
 
 from app import constants
-from app.models import Candidate, Observation
+from app.models import Candidate, Observation, PageClassification
+
+logger = logging.getLogger(__name__)
 
 SOURCE_QUALITY_LABELS = (
     "campaign_like",
@@ -106,7 +109,8 @@ def _normalized_text(*parts: str | None) -> str:
     return " ".join(_fold_text(part) for part in parts if part).strip()
 
 
-def classify_source_quality(*, url: str, page_title: str | None, visible_claims: list[str], raw_text: str) -> str:
+def _classify_source_quality_deterministic(*, url: str, page_title: str | None, visible_claims: list[str], raw_text: str) -> str:
+    """Deterministic fallback for source quality classification."""
     text = _normalized_text(url, page_title, " ".join(visible_claims), raw_text[:3000])
     if any(token in text for token in LOGIN_HINTS):
         return "login_wall"
@@ -128,6 +132,41 @@ def classify_source_quality(*, url: str, page_title: str | None, visible_claims:
     if institutional_hits >= 1:
         return "institutional"
     return "institutional"
+
+
+def _classify_source_quality_llm(*, url: str, page_title: str | None, visible_claims: list[str], raw_text: str) -> str | None:
+    """Classify page type using LLM. Returns None on failure."""
+    try:
+        from app.llm_client import AgentLLM
+
+        llm = AgentLLM()
+        claims_text = "\n".join(f"- {c}" for c in visible_claims[:10]) if visible_claims else "(nenhum)"
+        prompt = (
+            f"URL: {url}\n"
+            f"Titulo: {page_title or '(sem titulo)'}\n"
+            f"\nClaims visiveis:\n{claims_text}\n"
+            f"\nTexto (ate 2000 chars):\n{raw_text[:2000]}\n"
+        )
+        result = llm.call("quality_gate", prompt, response_format=PageClassification)
+        if isinstance(result, PageClassification) and result.label in SOURCE_QUALITY_LABELS:
+            logger.info("LLM quality gate: %s (reason: %s)", result.label, result.reasoning)
+            return result.label
+        return None
+    except Exception as exc:
+        logger.warning("LLM quality gate failed: %s", exc)
+        return None
+
+
+def classify_source_quality(*, url: str, page_title: str | None, visible_claims: list[str], raw_text: str) -> str:
+    """Classify source quality using LLM with deterministic fallback."""
+    llm_label = _classify_source_quality_llm(
+        url=url, page_title=page_title, visible_claims=visible_claims, raw_text=raw_text,
+    )
+    if llm_label is not None:
+        return llm_label
+    return _classify_source_quality_deterministic(
+        url=url, page_title=page_title, visible_claims=visible_claims, raw_text=raw_text,
+    )
 
 
 def _visual_ratios(image_path: Path) -> tuple[float, float]:
@@ -232,6 +271,11 @@ def assess_observation_quality(
         blocked_labels.add("institutional")
 
     reasons = list(screenshot_reasons)
+    if observation.instagram_block_reason:
+        reasons.append(observation.instagram_block_reason)
+        if "login" in _fold_text(observation.instagram_block_reason):
+            source_quality_label = "login_wall"
+
     if source_quality_label in blocked_labels:
         reasons.append(f"blocked_source_label:{source_quality_label}")
 

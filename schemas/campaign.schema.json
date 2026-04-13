@@ -37,6 +37,7 @@
     "channels": {
       "type": "array",
       "items": { "type": "string" }
-    }
+    },
+    "history_match_id": { "type": ["string", "null"] }
   }
 }

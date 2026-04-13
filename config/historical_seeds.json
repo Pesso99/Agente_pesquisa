@@ -1,0 +1,62 @@
+[
+  {
+    "institution_id": "btg",
+    "url": "https://cloud.btgpactual.com/campanhapontosbtgeopenfinance",
+    "source_type": "official_site",
+    "expected_label": "campaign_like",
+    "is_historical": true,
+    "title": "BTG campanha pontos open finance"
+  },
+  {
+    "institution_id": "btg",
+    "url": "https://content.btgpactual.com/blog/investimentos/pontos-por-investimentos-como-participar-da-campanha-btg-pactual",
+    "source_type": "official_site",
+    "expected_label": "campaign_like",
+    "is_historical": true,
+    "title": "BTG pontos por investimentos"
+  },
+  {
+    "institution_id": "santander",
+    "url": "https://investimentos.santander.com.br/oferta-fgc",
+    "source_type": "official_site",
+    "expected_label": "campaign_like",
+    "is_historical": true,
+    "title": "Santander oferta FGC"
+  },
+  {
+    "institution_id": "caixa",
+    "url": "https://www.caixa.gov.br/caixa165anos/Paginas/default.aspx",
+    "source_type": "official_site",
+    "expected_label": "campaign_like",
+    "is_historical": true,
+    "title": "Caixa 165 anos"
+  },
+  {
+    "institution_id": "btg",
+    "url": "https://www.instagram.com/p/DTP0stQAcEr/",
+    "source_type": "social_official",
+    "expected_label": "campaign_like",
+    "is_historical": true
+  },
+  {
+    "institution_id": "btg",
+    "url": "https://www.instagram.com/p/DQ4dQqCkeq9/",
+    "source_type": "social_official",
+    "expected_label": "campaign_like",
+    "is_historical": true
+  },
+  {
+    "institution_id": "btg",
+    "url": "https://www.instagram.com/p/DRMsgz4jhU8/",
+    "source_type": "social_official",
+    "expected_label": "campaign_like",
+    "is_historical": true
+  },
+  {
+    "institution_id": "btg",
+    "url": "https://www.instagram.com/p/DSbE_eaD_7n/",
+    "source_type": "social_official",
+    "expected_label": "campaign_like",
+    "is_historical": true
+  }
+]

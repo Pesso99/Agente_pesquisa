@@ -11,7 +11,7 @@ if str(ROOT) not in sys.path:
 from app import constants
 from app.io_utils import list_json_files, read_json, write_model
 from app.models import Campaign, Observation
-from app.scoring import validate_campaign
+from app.scoring import validate_campaign_two_pass
 
 
 def parse_args() -> argparse.Namespace:
@@ -42,8 +42,10 @@ def main() -> None:
             if any(artifact.type.startswith("screenshot") for artifact in obs.artifacts):
                 has_screenshot = True
                 break
-        validated = validate_campaign(campaign, scoring_rules, has_screenshot=has_screenshot)
-        write_model(path, validated)
+        _primary, _critic, final = validate_campaign_two_pass(
+            campaign, scoring_rules, has_screenshot=has_screenshot,
+        )
+        write_model(path, final)
         count += 1
 
     print(f"Campanhas validadas: {count}")

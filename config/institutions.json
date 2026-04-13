@@ -4,52 +4,126 @@
     "display_name": "Itau",
     "category": "bank",
     "priority": 1,
-    "official_domains": ["itau.com.br"],
+    "official_domains": [
+      "itau.com.br"
+    ],
     "official_socials": {
       "instagram": "https://www.instagram.com/itau/",
       "linkedin": "https://www.linkedin.com/company/itau/"
     },
     "search_terms": [
-      "Itau promocao",
+      "Itau promocao 2026",
       "Itau campanha investimentos",
-      "Itau cashback",
-      "Itau CDB promocional",
-      "site:itau.com.br promocao",
-      "site:itau.com.br campanha"
-    ]
+      "Itau cashback cartao",
+      "Itau CDB promocional taxa",
+      "Itau iuClick pontos",
+      "Itau Personnalite oferta",
+      "Itau anuidade gratis cartao",
+      "Itau promocao Livelo pontos"
+    ],
+    "source_templates": [
+      {
+        "template": "https://{domain}",
+        "paths": [
+          "/promocoes",
+          "/campanhas",
+          "/cartao"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.72
+      }
+    ],
+    "discovery_seeds": []
   },
   {
     "institution_id": "bradesco",
     "display_name": "Bradesco",
     "category": "bank",
     "priority": 1,
-    "official_domains": ["bradesco.com.br"],
+    "official_domains": [
+      "bradesco.com.br"
+    ],
     "official_socials": {
       "instagram": "https://www.instagram.com/bradesco/",
       "linkedin": "https://www.linkedin.com/company/bradesco/"
     },
     "search_terms": [
-      "Bradesco promocao",
+      "Bradesco promocao 2026",
       "Bradesco campanha investimentos",
-      "Bradesco cashback",
-      "site:bradesco.com.br promocao"
-    ]
+      "Bradesco cashback cartao",
+      "Bradesco Livelo campanha pontos",
+      "Bradesco CDB taxa promocional",
+      "Bradesco anuidade zero cartao",
+      "Bradesco Prime oferta",
+      "Bradesco consorcio promocao"
+    ],
+    "source_templates": [
+      {
+        "template": "https://{domain}",
+        "paths": [
+          "/promocoes",
+          "/campanhas",
+          "/cartoes"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.72
+      }
+    ],
+    "discovery_seeds": []
   },
   {
     "institution_id": "santander",
     "display_name": "Santander",
     "category": "bank",
     "priority": 1,
-    "official_domains": ["santander.com.br"],
+    "official_domains": [
+      "santander.com.br"
+    ],
     "official_socials": {
       "instagram": "https://www.instagram.com/santanderbr/",
       "linkedin": "https://www.linkedin.com/company/santander-brasil/"
     },
     "search_terms": [
-      "Santander promocao",
-      "Santander cashback",
-      "Santander investimentos campanha",
-      "site:santander.com.br promocao"
+      "Santander promocao 2026",
+      "Santander cashback cartao",
+      "Santander investimentos campanha CDB",
+      "Santander Esfera pontos milhas",
+      "Santander Select oferta",
+      "Santander anuidade gratis",
+      "Santander consorcio promocao",
+      "Santander renda fixa taxa promocional"
+    ],
+    "source_templates": [
+      {
+        "template": "https://investimentos.{domain}",
+        "paths": [
+          "",
+          "/oferta-fgc",
+          "/ofertas"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.88
+      },
+      {
+        "template": "https://blog.{domain}",
+        "paths": [
+          "",
+          "/promocoes",
+          "/campanhas"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.78
+      }
+    ],
+    "discovery_seeds": [
+      {
+        "url": "https://investimentos.santander.com.br/oferta-fgc",
+        "source_type": "official_site",
+        "confidence": 0.9,
+        "is_historical": true,
+        "expected_label": "campaign_like",
+        "title": "Santander oferta FGC"
+      }
     ]
   },
   {
@@ -57,65 +131,259 @@
     "display_name": "Inter",
     "category": "bank",
     "priority": 1,
-    "official_domains": ["bancointer.com.br", "inter.co"],
+    "official_domains": [
+      "bancointer.com.br",
+      "inter.co"
+    ],
     "official_socials": {
       "instagram": "https://www.instagram.com/bancointer/",
       "linkedin": "https://www.linkedin.com/company/interco/"
     },
     "search_terms": [
-      "Inter promocao",
-      "Inter cashback",
-      "Inter campanha investimentos",
-      "site:bancointer.com.br promocao"
-    ]
+      "Inter promocao 2026",
+      "Banco Inter cashback marketplace",
+      "Inter campanha investimentos CDB",
+      "Inter Loop pontos cashback",
+      "Inter Black oferta cartao",
+      "Inter consorcio promocao",
+      "Inter conta digital beneficios",
+      "Inter shopping cashback"
+    ],
+    "source_templates": [
+      {
+        "template": "https://{domain}",
+        "paths": [
+          "/promocoes",
+          "/ofertas",
+          "/cartao"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.72
+      }
+    ],
+    "discovery_seeds": []
   },
   {
     "institution_id": "nubank",
     "display_name": "Nubank",
     "category": "bank",
     "priority": 1,
-    "official_domains": ["nubank.com.br"],
+    "official_domains": [
+      "nubank.com.br"
+    ],
     "official_socials": {
       "instagram": "https://www.instagram.com/nubank/",
       "linkedin": "https://www.linkedin.com/company/nubank/"
     },
     "search_terms": [
-      "Nubank promocao",
-      "Nubank cashback",
-      "Nubank campanha investimentos",
-      "site:nubank.com.br promocao"
-    ]
+      "Nubank promocao 2026",
+      "Nubank cashback compras",
+      "Nubank campanha investimentos CDB",
+      "Nubank Ultravioleta beneficios",
+      "Nubank+ vantagens assinatura",
+      "Nubank pontos rewards",
+      "Nubank parceria oferta",
+      "Nubank conta PJ promocao"
+    ],
+    "source_templates": [
+      {
+        "template": "https://{domain}",
+        "paths": [
+          "/nu/promocoes",
+          "/ultravioleta",
+          "/blog"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.74
+      }
+    ],
+    "discovery_seeds": []
   },
   {
     "institution_id": "btg",
     "display_name": "BTG Pactual",
     "category": "bank",
-    "priority": 2,
-    "official_domains": ["btgpactual.com"],
+    "priority": 1,
+    "official_domains": [
+      "btgpactual.com"
+    ],
     "official_socials": {
       "instagram": "https://www.instagram.com/btgpactual/",
       "linkedin": "https://www.linkedin.com/company/btg-pactual/"
     },
     "search_terms": [
-      "BTG Pactual promocao",
+      "BTG Pactual promocao 2026",
       "BTG Pactual campanha investimentos",
-      "site:btgpactual.com promocao"
+      "BTG Pactual pontos campanha",
+      "BTG Pactual CDB taxa promocional",
+      "BTG Pactual cashback cartao",
+      "BTG Pactual open finance pontos"
+    ],
+    "source_templates": [
+      {
+        "template": "https://cloud.{domain}",
+        "paths": [
+          "",
+          "/campanhas",
+          "/promocoes"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.86
+      },
+      {
+        "template": "https://content.{domain}",
+        "paths": [
+          "",
+          "/blog",
+          "/blog/investimentos"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.84
+      },
+      {
+        "template": "https://investimentos.{domain}",
+        "paths": [
+          "",
+          "/ofertas",
+          "/promocoes"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.82
+      }
+    ],
+    "discovery_seeds": [
+      {
+        "url": "https://cloud.btgpactual.com/campanhapontosbtgeopenfinance",
+        "source_type": "official_site",
+        "confidence": 0.92,
+        "is_historical": true,
+        "expected_label": "campaign_like",
+        "title": "BTG campanha pontos open finance"
+      },
+      {
+        "url": "https://content.btgpactual.com/blog/investimentos/pontos-por-investimentos-como-participar-da-campanha-btg-pactual",
+        "source_type": "official_site",
+        "confidence": 0.9,
+        "is_historical": true,
+        "expected_label": "campaign_like",
+        "title": "BTG pontos por investimentos"
+      },
+      {
+        "url": "https://www.instagram.com/p/DTP0stQAcEr/",
+        "source_type": "social_official",
+        "confidence": 0.8,
+        "is_historical": true,
+        "expected_label": "campaign_like"
+      },
+      {
+        "url": "https://www.instagram.com/p/DQ4dQqCkeq9/",
+        "source_type": "social_official",
+        "confidence": 0.8,
+        "is_historical": true,
+        "expected_label": "campaign_like"
+      },
+      {
+        "url": "https://www.instagram.com/p/DRMsgz4jhU8/",
+        "source_type": "social_official",
+        "confidence": 0.8,
+        "is_historical": true,
+        "expected_label": "campaign_like"
+      },
+      {
+        "url": "https://www.instagram.com/p/DSbE_eaD_7n/",
+        "source_type": "social_official",
+        "confidence": 0.8,
+        "is_historical": true,
+        "expected_label": "campaign_like"
+      }
     ]
   },
   {
     "institution_id": "xp",
     "display_name": "XP",
     "category": "broker",
-    "priority": 2,
-    "official_domains": ["xp.com.br"],
+    "priority": 1,
+    "official_domains": [
+      "xp.com.br"
+    ],
     "official_socials": {
       "instagram": "https://www.instagram.com/xpinvestimentos/",
       "linkedin": "https://www.linkedin.com/company/xp-inc-/"
     },
     "search_terms": [
-      "XP promocao",
-      "XP investimentos campanha",
-      "site:xp.com.br promocao"
+      "XP promocao 2026",
+      "XP investimentos campanha oferta",
+      "XP cashback cartao",
+      "XP renda fixa taxa promocional",
+      "XP pontos programa fidelidade",
+      "XP conta digital beneficios"
+    ],
+    "source_templates": [
+      {
+        "template": "https://{domain}",
+        "paths": [
+          "/promocoes",
+          "/blog",
+          "/investimentos"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.74
+      }
+    ],
+    "discovery_seeds": []
+  },
+  {
+    "institution_id": "caixa",
+    "display_name": "Caixa",
+    "category": "bank",
+    "priority": 1,
+    "official_domains": [
+      "caixa.gov.br"
+    ],
+    "official_socials": {
+      "instagram": "https://www.instagram.com/caixa/",
+      "linkedin": "https://www.linkedin.com/company/caixa/"
+    },
+    "search_terms": [
+      "Caixa promocao 2026",
+      "Caixa campanha beneficios",
+      "Caixa cashback cartao",
+      "Caixa consorcio promocao",
+      "Caixa CDB taxa promocional",
+      "Caixa Tem promocao ofertas",
+      "Caixa poupanca campanha",
+      "Caixa cartao anuidade gratis"
+    ],
+    "source_templates": [
+      {
+        "template": "https://{domain}",
+        "paths": [
+          "/",
+          "/voce/promocoes",
+          "/Paginas/default.aspx"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.74
+      },
+      {
+        "template": "https://blog.{domain}",
+        "paths": [
+          "",
+          "/promocoes"
+        ],
+        "source_type": "official_site",
+        "confidence": 0.72
+      }
+    ],
+    "discovery_seeds": [
+      {
+        "url": "https://www.caixa.gov.br/caixa165anos/Paginas/default.aspx",
+        "source_type": "official_site",
+        "confidence": 0.88,
+        "is_historical": true,
+        "expected_label": "campaign_like",
+        "title": "Caixa 165 anos"
+      }
     ]
   }
 ]

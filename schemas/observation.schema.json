@@ -32,6 +32,8 @@
       }
     },
     "raw_html_path": { "type": ["string", "null"] },
-    "raw_text_path": { "type": ["string", "null"] }
+    "raw_text_path": { "type": ["string", "null"] },
+    "instagram_modal_dismissed": { "type": ["boolean", "null"] },
+    "instagram_block_reason": { "type": ["string", "null"] }
   }
 }
